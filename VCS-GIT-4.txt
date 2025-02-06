@@ -1,0 +1,104 @@
+
+
+Session video : https://drive.google.com/file/d/14V8BZNtDwcB_Me2LzzktA0JsCLDiFUCj/view?usp=sharing
+
+The difference between the other VCS Systems and the Aws Codecommit is here we can host only the private git repositories.
+
+Go to the vscode and the open the folder VCS-SCM.
+From there open the terminal and type the command git fetch .
+
+It is going to give you about the list of transactions which are made in the online branch.
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 8 (delta 0), reused 5 (delta 0), pack-reused 0
+Unpacking objects: 100% (8/8), 1.67 KiB | 43.00 KiB/s, done.
+From https://github.com/v10042000/VCS-SCM
+   58bcd36..05832d4  main       -> origin/main
+ * [new branch]      dev        -> origin/dev
+
+From the last lab we have created a branch named dev from the main branch.
+That creation change will be shown by execcuting the git fetch command.
+
+
+This command is going to download the changes from the online branch (Remote repository).
+git pull 
+Updating 58bcd36..05832d4
+Fast-forward
+ infra/IAC/main.tf | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+ create mode 100644 infra/IAC/main.tf
+ 
+ The above message is shown because we have created a terraform file (main.tf) and added the content to the main branch in remote repository.
+ 
+ The difference between the git fetch and git pull is git fetch will copy the chnages into the local git repo .Whereas the git pull will download the changes directly from 
+ Remote repository to the Local repository.
+ 
+ git branch  			/It will give you the local branches.
+ 
+ git branch -r 			/It will give you the remote branches.
+ 
+ git branch -a 			/It will give you the local as well as remote branches.
+ 
+ To create a new branch 
+ Syntax:git branch <branch_name>
+ Example:git branch jira-1020
+ 
+ Where jira-1020 is the task id which is assigned to you.
+ Here jira-1020 branch is created from the main branch.
+ 
+ To switch to the newly created branch enter the command 
+ git checkout jira-1020 
+ 
+ In the top-left corner of the vscode window.There is a git branch symbol showing one notification there you can add the comments.
+ After adding the comment for the created file then you can publish the file.
+ 
+ We can also pull or fetch the content from the vscode terminal.
+ 
+ To merge the content from one branch jira-1020 to dev .we can do that by raising a pull request in the github.For that one person has to review the request and approve.
+ Or else we can also do that in the local repository by 
+ 
+ git checkout branch dev
+ 
+ Now by firing this command we can switch to the another branch dev.
+ 
+ Now fire the command git status .			/It will show the current branch where you are located in 
+ 
+ Now fire this command to copy the content from jira-1020 branch to the dev branch .
+ git merge jira-1020
+ 
+
+ When you want to delete the branch .First you should be in the parent branch and then you create a new branch and then delete the newly created branch.
+ 
+ Suppose you are in the dev (Parent branch).
+ 
+ create a new branch jira1 from the dev branch 
+ 
+ git branch jira1
+ 
+ Delete the branch 
+ 
+ gira branch -d jira1
+ 
+ This is CLI way of execcuting the branch creation and deletion from the parent branch.
+ 
+ git stash 				/This command is used by the developers of vcs to switch between the branches of git without commiting the changes.
+						 Alao this command is used to move the file to temporary location.
+ 
+ first we have created a teraform file in the branch main 
+ 
+ save the file
+ 
+ git stash 		/ By this the file gets dissappeared.
+ 
+ git status 
+ 
+ git add .
+ 
+ git commit -m "chinnadi chesanu"
+ 
+ git push origin main 		/Finally to push the code from local to the remote repository.
+ 
+ git stash pop 				/After firing this command this will show the created file .
+ 
+ 
